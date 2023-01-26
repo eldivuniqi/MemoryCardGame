@@ -1,0 +1,17 @@
+.row {
+    margin-bottom: 50px;
+}
+
+.card { 
+    background-color: #3b393c;
+    opacity: 73%;
+    font-size: 30px;
+    width: 440px;
+    color: white;
+    margin-left: -10px;
+}
+
+.right-div { 
+    margin-top: 35px;
+    background-color: #3b393c;
+}

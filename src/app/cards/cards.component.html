@@ -1,0 +1,24 @@
+<div class="cards-background">
+    <div class="cards-container">
+      <div
+      class="card"
+      *ngFor="let card of cards"
+      [ngClass]="{'flipped': card.flipped }"
+      (click)="onClick(card)"
+    >
+  
+        <div class="front">
+          <div class="border">
+            <div class="card-content">
+              <div class="big-square light-green"></div>
+              <div class="small-square dark-green"></div>
+            </div>
+          </div>
+        </div>
+        <div class="back black" *ngIf="card.flipped"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <p>Card Clicks: {{ cardClicks }}</p> -->

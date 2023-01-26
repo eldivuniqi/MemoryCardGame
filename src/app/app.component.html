@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8"><app-cards (cardsClicked)="cardClicked()" ></app-cards></div>
+
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="container">
+          <div class="player-area">
+            <app-player-bar></app-player-bar>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Scoreboard</h5>
+                <div class="row">
+                  <div class="col-6">
+                      <div class="left-div">Time</div>
+                  </div>
+                  <div class="col-6">
+                      <div class="right-div">{{minutes}}:{{seconds}}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                      <div class="left-div">Moves</div>
+                  </div>
+                  <div class="col-6">
+                      <div class="right-div">{{ cardClicks }}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                      <div class="left-div">Game</div>
+                  </div>
+                  <div class="col-6">
+                      <div class="right-div">{{gameNumber}}</div>
+                  </div>
+                </div>
+                <!-- <p>Game Number: {{gameNumber}}</p>
+                <p>Time: {{minutes}}:{{seconds}}</p>
+                <p>Moves: {{ cardClicks }} </p> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <!-- game elements -->
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="scoreboard">
+          <div class="DataContainer">
+            <div *ngIf="!gameStarted">
+              <button class="btn btn-warning" (click)="startGame()">Start Game</button>
+            </div>
+            <div *ngIf="gameStarted && !gameEnded">
+              <!-- <p>Time Elapsed: {{minutes}}:{{seconds}}</p> -->
+              <button (click)="stopTimer()">End Game</button>
+            </div>
+            <div *ngIf="gameEnded">
+              <!-- <p>Time Elapsed: {{timeElapsed}}</p>
+              <p>Game Number: {{gameNumber}}</p> -->
+              <button (click)="resetGame()">Reset Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+      <button class="btn btn-warning" (click)="openDialog()">Submit</button>
+    </div>
+
+  </div>
+</div>
