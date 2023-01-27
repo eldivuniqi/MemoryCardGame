@@ -17,22 +17,27 @@ export class AppComponent {
   minutes = 0;
   seconds =0;
   clicks: number=0;
+  isGameStarted: boolean = false;
+  formattedTime: string = "00:00";
 
   cardClicks: number = 0;
 
   constructor(private modalService: NgbModal) { }
 
   startGame() {
+    this.isGameStarted = true;
     if(this.gameEnded) {
       this.resetGame();
     }
+    ++this.cardClicks;
     this.gameStarted = true;
     this.intervalId = setInterval(() => {
       this.minutes = Math.floor(this.timeElapsed / 60);
       this.seconds = this.timeElapsed % 60;
       this.timeElapsed++;
-    }, 1000);
-  }
+      this.formattedTime = `${this.minutes.toString().padStart(2, '0')}:${this.seconds.toString().padStart(2, '0')}`;
+    }, 1000); 
+    }
 
   stopTimer() {
     clearInterval(this.intervalId);
@@ -51,14 +56,23 @@ export class AppComponent {
     this.gameEnded = false;
   }
 
-  openDialog() {
+  // openDialog() {
+  //   const modalRef = this.modalService.open(SubmitDialogComponent);
+  //   modalRef.result.then((result) => {
+  //     console.log(`Closed with: ${result}`);
+  //   }, (reason) => {
+  //     console.log(`Dismissed ${reason}`);
+  //   });
+  // }
+
+  openDialog(score: number, name: string, timer: number, cardClicks: number, gameNumber: number) {
     const modalRef = this.modalService.open(SubmitDialogComponent);
-    modalRef.result.then((result) => {
-      console.log(`Closed with: ${result}`);
-    }, (reason) => {
-      console.log(`Dismissed ${reason}`);
-    });
-  }
+    modalRef.componentInstance.score = score;
+    modalRef.componentInstance.name = name;
+    modalRef.componentInstance.timer = timer;
+    modalRef.componentInstance.cardClicks = cardClicks;
+    modalRef.componentInstance.gameNumber = gameNumber;
+}
 
 
 }

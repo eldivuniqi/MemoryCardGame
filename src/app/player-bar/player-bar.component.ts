@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-player-bar',
@@ -6,8 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./player-bar.component.css']
 })
 export class PlayerBarComponent {
+   progress = 0;
+
+  constructor(public dataService: DataService) {}
+  ngOnInit() {
+    this.dataService.progress$.subscribe(progress => {
+      this.progress = progress;
+    });
+}
   player = {
-    name: 'John Doe',
-    image: 'assets/images/player.png'
+    name: 'Filan Fisteku'
 };
 }
+
