@@ -7,7 +7,6 @@
         <div class="container">
           <div class="player-area">
             <app-player-bar></app-player-bar>
-            <!-- [flipped]="flipped" [clicks]="clicks" [count]="count" [cardClicks]="cardClicks -->
           </div>
         </div>
       </div>
@@ -42,14 +41,10 @@
                       <div class="right-div">{{gameNumber}}</div>
                   </div>
                 </div>
-                <!-- <p>Game Number: {{gameNumber}}</p>
-                <p>Time: {{minutes}}:{{seconds}}</p>
-                <p>Moves: {{ cardClicks }} </p> -->
               </div>
             </div>
           </div>
           <div class="col-md-9">
-            <!-- game elements -->
           </div>
         </div>
       </div>
@@ -62,22 +57,14 @@
               <button class="btn btn-warning" (click)="startGame()">Start Game</button>
             </div>
             <div *ngIf="gameStarted && !gameEnded">
-              <!-- <p>Time Elapsed: {{minutes}}:{{seconds}}</p> -->
               <button (click)="stopTimer()">End Game</button>
             </div>
             <div *ngIf="gameEnded">
-              <!-- <p>Time Elapsed: {{timeElapsed}}</p>
-              <p>Game Number: {{gameNumber}}</p> -->
               <button (click)="resetGame()">Reset Game</button>
             </div>
           </div>
         </div>
       </div>
-    
-
-     <!-- <button type="button" class="btn btn-outline-darksubmit" (click)="modal.close('Save click')"><a href="mailto:eldivuniqi@gmail.com"
-
-    </div> -->
 
     <button class="btn btn-warning"><a [href]="'mailto:eldivuniqi@gmail.com?subject=Memory Game Results&body=' +
     'Time Elapsed: ' + timeElapsed + '%0D%0A' +

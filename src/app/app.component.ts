@@ -1,7 +1,5 @@
 import { Component, Inject } from "@angular/core";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SubmitDialogComponent } from "./submit-dialog/submit-dialog.component";
-
 
 @Component({
   selector: "app-root",
@@ -55,25 +53,6 @@ export class AppComponent {
     this.gameStarted = false;
     this.gameEnded = false;
   }
-
-  // openDialog() {
-  //   const modalRef = this.modalService.open(SubmitDialogComponent);
-  //   modalRef.result.then((result) => {
-  //     console.log(`Closed with: ${result}`);
-  //   }, (reason) => {
-  //     console.log(`Dismissed ${reason}`);
-  //   });
-  // }
-
-  openDialog(score: number, name: string, timer: number, cardClicks: number, gameNumber: number) {
-    const modalRef = this.modalService.open(SubmitDialogComponent);
-    modalRef.componentInstance.score = score;
-    modalRef.componentInstance.name = name;
-    modalRef.componentInstance.timer = timer;
-    modalRef.componentInstance.cardClicks = cardClicks;
-    modalRef.componentInstance.gameNumber = gameNumber;
-}
-
 
 }
 

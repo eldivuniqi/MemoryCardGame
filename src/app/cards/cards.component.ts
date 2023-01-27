@@ -13,8 +13,6 @@ export class CardsComponent {
   count =0;
   cardClicks = 0;
   progress =0;
-  // matchedCards: any[]=[];
-  
 
   @Output() cardsClicked = new EventEmitter<number>();
   @Output() inceaseTheProgress = new EventEmitter<any>();
@@ -47,7 +45,6 @@ flip(card: any) {
         this.flippedCards[1].flipped = true;
         this.flippedCards = [];
         this.count++;
-        // this.increaseProgress();
         this.dataService.count++;
         this.dataService.increaseProgress();
       } else {

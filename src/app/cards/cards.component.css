@@ -48,7 +48,6 @@
     transition: transform 0.8s;
   }
   .back {
-    /* background-image: url("path/to/image.jpg"); */
     background-size: cover;
     background-position: center;
     width: 100%;
