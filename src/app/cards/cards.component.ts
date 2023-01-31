@@ -36,6 +36,7 @@ export class CardsComponent {
  constructor(private dataService: DataService) {}
 
 flip(card: any) {
+  if (this.gameStarted) {
   if (!card.flipped && this.flippedCards.length < 2) {
     this.flippedCards.push(card);
     card.flipped = true;
@@ -60,6 +61,7 @@ flip(card: any) {
     }
   }
 }
+}
 
    onClick(card: any) {
      console.log("onclick")
@@ -69,3 +71,5 @@ flip(card: any) {
      }
   }
  }
+
+
